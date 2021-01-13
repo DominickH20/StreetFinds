@@ -1,7 +1,20 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { IonApp, IonContent, IonRouterOutlet, IonTabBar, IonTabs } from '@ionic/react';
+
+import { IonCard, IonCardHeader, IonCardContent, 
+  IonCardTitle, IonCardSubtitle } from '@ionic/react';
+
+import {IonSplitPane, IonMenu, IonHeader, IonToolbar,
+  IonTitle, IonPage, IonMenuButton, IonButtons, IonButton, IonIcon} from '@ionic/react';
+
+import { IonTabButton, IonLabel } from '@ionic/react';
+
+import { person, camera, search } from 'ionicons/icons';
+  
 import { IonReactRouter } from '@ionic/react-router';
+
+import Welcome from './pages/Welcome';
 import Home from './pages/Home';
 
 /* Core CSS required for Ionic components to work properly */
@@ -21,15 +34,17 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Theme variables */
-import './theme/variables.css';
+import './theme/streetfinds.css';
+import { OutliningSpanKind } from 'typescript';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/home" component={Home} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
-      </IonRouterOutlet>
+      <Switch> {/*MUST USE SWITCH HERE - WHY?*/}
+        <Route exact path="/welcome"><Welcome /></Route>
+        <Route path="/home"><Home /></Route> {/*CANNOT USE EXACT HERE - WHY?*/}
+        <Redirect exact path="/" to="/welcome" />
+      </Switch>
     </IonReactRouter>
   </IonApp>
 );

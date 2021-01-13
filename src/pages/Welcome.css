@@ -1,0 +1,22 @@
+.title {
+    font-size: 40px;
+}
+
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 30%;
+    bottom: 30%;
+    align-items: center;
+    justify-items: space-between;
+}
+
+.welcome-logo {
+    font-size: 100px;
+}
+
+.start-button {
+    position: relative;
+    bottom: 20%;
+}

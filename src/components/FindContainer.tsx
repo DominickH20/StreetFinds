@@ -1,9 +1,9 @@
 import React from 'react';
-import './ExploreContainer.css';
+import './FindContainer.css';
 
 interface ContainerProps { }
 
-const ExploreContainer: React.FC<ContainerProps> = () => {
+const FindContainer: React.FC<ContainerProps> = () => {
   return (
     <div className="container">
       <strong>Ready to create an app?</strong>
@@ -12,4 +12,4 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
   );
 };
 
-export default ExploreContainer;
+export default FindContainer;
