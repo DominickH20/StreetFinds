@@ -8,9 +8,11 @@
 
 # testing
 /client/coverage
+/server/coverage
 
 # production
 /client/build
+/server/build
 
 # misc
 /client/.DS_Store
@@ -20,7 +22,18 @@
 /client/.env.production.local
 /client/.vscode
 /client/.eslintcache
+/server/.DS_Store
+/server/.env
+/server/.env.local
+/server/.env.development.local
+/server/.env.test.local
+/server/.env.production.local
+/server/.vscode
+/server/.eslintcache
 
 /client/npm-debug.log*
 /client/yarn-debug.log*
 /client/yarn-error.log*
+/server/npm-debug.log*
+/server/yarn-debug.log*
+/server/yarn-error.log*
