@@ -1,18 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { IonApp, IonContent, IonRouterOutlet, IonTabBar, IonTabs } from '@ionic/react';
-
-import { IonCard, IonCardHeader, IonCardContent, 
-  IonCardTitle, IonCardSubtitle } from '@ionic/react';
-
-import {IonSplitPane, IonMenu, IonHeader, IonToolbar,
-  IonTitle, IonPage, IonMenuButton, IonButtons, IonButton, IonIcon} from '@ionic/react';
-
-import { IonTabButton, IonLabel } from '@ionic/react';
-
-import { person, camera, search } from 'ionicons/icons';
-  
 import { IonReactRouter } from '@ionic/react-router';
+import { IonApp, IonContent, IonRouterOutlet } from '@ionic/react';  
 
 import Welcome from './pages/Welcome';
 import Home from './pages/Home';
@@ -39,13 +28,7 @@ import { OutliningSpanKind } from 'typescript';
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <Switch> {/*MUST USE SWITCH HERE - WHY?*/}
-        <Route exact path="/welcome"><Welcome /></Route>
-        <Route path="/home"><Home /></Route> {/*CANNOT USE EXACT HERE - WHY?*/}
-        <Redirect exact path="/" to="/welcome" />
-      </Switch>
-    </IonReactRouter>
+    <Home/>
   </IonApp>
 );
 

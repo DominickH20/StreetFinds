@@ -1,0 +1,16 @@
+.hcs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.thumbnail-size {
+    height: 30px;
+    width: 30px;
+}
+
+.app-title {
+    /* padding: 10px; */
+    font-size: 30px;
+}
