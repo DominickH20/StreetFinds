@@ -16,13 +16,9 @@ import { person, camera, search, options, settings,
   
 import { IonReactRouter } from '@ionic/react-router';
 
-import FindsViewer from './FindsViewer';
-import Profile from './Profile';
-import NewFind from './NewFind';
 import Welcome from './Welcome';
 import SideMenu from '../components/SideMenu';
 import HomeHeader from '../components/HomeHeader';
-import FindContainer from '../components/FindContainer';
 import TempContainer from '../components/TempContainer';
 import MyFab from '../components/MyFab';
 

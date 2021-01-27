@@ -5,8 +5,8 @@ import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle,
 
 import { location } from 'ionicons/icons';
 
-import FindContainer from '../components/FindContainer';
-import './FindsViewer.css';
+import FindCard from '../components/FindCard';
+import './FindCard.css';
 
 //STUB COMPONENT TODO
 const FindsViewer: React.FC = () => {
@@ -24,7 +24,7 @@ const FindsViewer: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <FindContainer />
+        <FindCard />
       </IonContent>
     </IonPage>
   );
