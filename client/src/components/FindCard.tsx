@@ -1,28 +1,61 @@
 import React from 'react';
 import { IonCard, IonCardContent, IonCardTitle, IonCardSubtitle,
-  IonImg, IonCardHeader, IonItem, IonButton, IonIcon} from '@ionic/react';
+  IonImg, IonCardHeader, IonItem, IonButton, IonIcon, IonNote, IonLabel } from '@ionic/react';
+import { timerOutline, star } from 'ionicons/icons';
 
 import './FindCard.css';
 
 interface ContainerProps { }
 
 const FindCard: React.FC<ContainerProps> = () => {
+
+  //randomize img for testing
+  const choice = Math.floor(Math.random() * 4) + 1;
+  let path:string = "";
+  let desc:string = ""
+  switch(choice) {
+    case 1:
+      path = "/assets/test_imgs/chairs1.jpg";
+      desc = "Chairs and Bar Stools";
+      break;
+    case 2:
+      path = "/assets/test_imgs/couch1.jpg";
+      desc = "Couch - Blue";
+      break;
+    case 3:
+      path = "/assets/test_imgs/couch2b.png";
+      desc = "Couch - Green"
+      break;
+    case 4:
+      path = "/assets/test_imgs/drawer1.jpg";
+      desc = "Drawer - Brown and White";
+      break;
+  }
+
+  let isNew = (choice > 3) ? true : false;
+
   return (
-    <IonCard>
-      <IonImg src="/assets/myImg.png"></IonImg>
+    <IonCard className="find-card">
+
+      {isNew && (
+        <div className="new-find">
+          <IonIcon icon={star}/>
+          <span className="text">Just Up!</span>
+        </div>
+      )}
+      
+      <div className="img-holder">
+        <IonImg src={path}></IonImg>
+      </div>
       <IonCardContent>
-        <IonCardHeader>
-          <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-          <IonCardTitle>Card Title</IonCardTitle>
-        </IonCardHeader>
-        <p>Here’s a small text description for the card component. 
-          Nothing more, nothing less.
-        </p>
-        <IonItem>
-          <IonButton fill="solid">Action</IonButton>
-          <IonIcon name="heart" slot="end"></IonIcon>
-          <IonIcon name="share" slot="end"></IonIcon>
-        </IonItem>
+        <div className="title-holder">
+          <IonCardTitle>{desc}</IonCardTitle>
+          <IonCardTitle>
+            <span className="text">2</span>
+            <IonIcon icon={timerOutline}/>
+          </IonCardTitle>
+        </div>
+        <IonCardSubtitle>4th Ave and 84th Street</IonCardSubtitle>
       </IonCardContent>
     </IonCard>
   );
