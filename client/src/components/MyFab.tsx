@@ -4,7 +4,7 @@ import { chevronUpCircleOutline, camera, mapOutline, listOutline } from 'ionicon
 import './MyFab.css';
 
 interface fabProps {
-  isDesktop: boolean;
+  isSplit: boolean;
   isListView: boolean;
   toggleView(): void;
 }
@@ -18,7 +18,7 @@ const MyFab: React.FC<fabProps> = (props) => {
       </IonFabButton>
       <IonFabList side="top">
         <IonFabButton><IonIcon icon={camera} /></IonFabButton>
-        {!props.isDesktop && (
+        {!props.isSplit && (
           <IonFabButton onClick={()=>props.toggleView()}>
             {(props.isListView) ? (
               <IonIcon icon={mapOutline} />

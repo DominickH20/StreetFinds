@@ -21,16 +21,20 @@ import SideMenu from '../components/SideMenu';
 import HomeHeader from '../components/HomeHeader';
 import TempContainer from '../components/TempContainer';
 import MyFab from '../components/MyFab';
+import ListView from '../views/ListView';
 
 import './Home.css';
 import { getLeadingCommentRanges } from 'typescript';
 
+
 const Home: React.FC = () => {
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 768);
+  const [isSplit, setSplit] = useState(window.innerWidth > 768);
+  const [isOneCol, setOneCol] = useState(window.innerWidth <= 500);
   const [isListView, setListView] = useState(true);
 
   const updateMedia = () => {
-    setDesktop(window.innerWidth > 768);
+    setSplit(window.innerWidth > 768);
+    setOneCol(isSplit ? 0.6*window.innerWidth <= 500 : window.innerWidth <= 500);
   };
 
   useEffect(() => {
@@ -49,11 +53,11 @@ const Home: React.FC = () => {
         <IonPage id="main">
           <HomeHeader/>
           <IonContent>
-            <MyFab isDesktop={isDesktop} isListView={isListView} toggleView={toggleView} />
-              {isDesktop ? (
+            <MyFab isSplit={isSplit} isListView={isListView} toggleView={toggleView} />
+              {isSplit ? (
                 <div className="finds-view-container">
                   <div className="list-view">
-                    <TempContainer text="This is the list view"/>
+                    <ListView isOneCol={isOneCol}/>
                   </div>
                   <div className="map-view">
                     <TempContainer text="This is the map view"/>
@@ -62,7 +66,7 @@ const Home: React.FC = () => {
               ) : (
                 <div className="finds-view-container">
                   {isListView ? (
-                    <TempContainer text="This is the list view"/>
+                    <ListView isOneCol={isOneCol}/>
                   ) : (
                     <TempContainer text="This is the map view"/>
                   )}
