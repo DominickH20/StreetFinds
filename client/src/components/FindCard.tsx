@@ -1,15 +1,31 @@
 import React from 'react';
-import './FindContainer.css';
+import { IonCard, IonCardContent, IonCardTitle, IonCardSubtitle,
+  IonImg, IonCardHeader, IonItem, IonButton, IonIcon} from '@ionic/react';
+
+import './FindCard.css';
 
 interface ContainerProps { }
 
-const FindContainer: React.FC<ContainerProps> = () => {
+const FindCard: React.FC<ContainerProps> = () => {
   return (
-    <div className="container">
-      <strong>Ready to create an app?</strong>
-      <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    </div>
+    <IonCard>
+      <IonImg src="/assets/myImg.png"></IonImg>
+      <IonCardContent>
+        <IonCardHeader>
+          <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+          <IonCardTitle>Card Title</IonCardTitle>
+        </IonCardHeader>
+        <p>Here’s a small text description for the card component. 
+          Nothing more, nothing less.
+        </p>
+        <IonItem>
+          <IonButton fill="solid">Action</IonButton>
+          <IonIcon name="heart" slot="end"></IonIcon>
+          <IonIcon name="share" slot="end"></IonIcon>
+        </IonItem>
+      </IonCardContent>
+    </IonCard>
   );
 };
 
-export default FindContainer;
+export default FindCard;
