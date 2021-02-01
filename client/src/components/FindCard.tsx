@@ -32,7 +32,7 @@ const FindCard: React.FC<ContainerProps> = () => {
       break;
   }
 
-  let isNew = (choice > 3) ? true : false;
+  let isNew = true;//(choice > 3) ? true : false;
 
   return (
     <IonCard className="find-card">
