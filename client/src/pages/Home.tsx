@@ -28,12 +28,12 @@ import { getLeadingCommentRanges } from 'typescript';
 
 
 const Home: React.FC = () => {
-  const [isSplit, setSplit] = useState(window.innerWidth > 768);
+  const [isSplit, setSplit] = useState(window.innerWidth > 992);
   const [isOneCol, setOneCol] = useState(window.innerWidth <= 500);
   const [isListView, setListView] = useState(true);
 
   const updateMedia = () => {
-    setSplit(window.innerWidth > 768);
+    setSplit(window.innerWidth > 992);
     setOneCol(isSplit ? 0.6*window.innerWidth <= 500 : window.innerWidth <= 500);
   };
 
