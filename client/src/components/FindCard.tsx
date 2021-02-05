@@ -32,7 +32,7 @@ const FindCard: React.FC<ContainerProps> = () => {
       break;
   }
 
-  let isNew = Math.random() > 0.25 ? true : false;
+  let isNew = Math.random() > 0.33 ? true : false;
 
   return (
     <IonCard className="find-card">
