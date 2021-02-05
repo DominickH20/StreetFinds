@@ -32,7 +32,7 @@ const FindCard: React.FC<ContainerProps> = () => {
       break;
   }
 
-  let isNew = true;//(choice > 3) ? true : false;
+  let isNew = Math.random() > 0.25 ? true : false;
 
   return (
     <IonCard className="find-card">
@@ -51,7 +51,7 @@ const FindCard: React.FC<ContainerProps> = () => {
         <div className="title-holder">
           <IonCardTitle>{desc}</IonCardTitle>
           <IonCardTitle>
-            <span className="text">2</span>
+            <span className="text">{Math.floor(Math.random() * 4) + 1}</span>
             <IonIcon icon={timerOutline}/>
           </IonCardTitle>
         </div>
