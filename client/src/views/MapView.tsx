@@ -6,7 +6,7 @@ interface ContainerProps { }
 
 const MapView: React.FC<ContainerProps> = () => {
   return (
-    <div>
+    <div className="map">
         
     </div>
   );
