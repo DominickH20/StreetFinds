@@ -1,30 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonContent, IonFab, IonFabButton, IonRouterOutlet, 
-  IonTabBar, IonTabs, IonFabList } from '@ionic/react';
+import { IonContent } from '@ionic/react';
 
-import { IonCard, IonCardHeader, IonCardContent, 
-  IonCardTitle, IonCardSubtitle } from '@ionic/react';
+import {IonSplitPane, IonPage } from '@ionic/react';
 
-import {IonSplitPane, IonMenu, IonHeader, IonToolbar,
-  IonTitle, IonPage, IonMenuButton, IonButtons, IonButton, IonIcon} from '@ionic/react';
-
-import { IonTabButton, IonLabel } from '@ionic/react';
-
-import { person, camera, search, options, settings, 
-  chevronUpCircleOutline, listOutline, mapOutline } from 'ionicons/icons';
-  
-import { IonReactRouter } from '@ionic/react-router';
-
-import Welcome from './Welcome';
 import SideMenu from '../components/SideMenu';
 import HomeHeader from '../components/HomeHeader';
-import TempContainer from '../components/TempContainer';
 import MyFab from '../components/MyFab';
 import ListView from '../views/ListView';
+import MapView from '../views/MapView';
 
 import './Home.css';
-import { getLeadingCommentRanges } from 'typescript';
 
 
 const Home: React.FC = () => {
@@ -60,7 +45,7 @@ const Home: React.FC = () => {
                     <ListView isOneCol={isOneCol}/>
                   </div>
                   <div className="map-view">
-                    <TempContainer text="This is the map view"/>
+                    <MapView />
                   </div>
                 </div>
               ) : (
@@ -68,7 +53,7 @@ const Home: React.FC = () => {
                   {isListView ? (
                     <ListView isOneCol={isOneCol}/>
                   ) : (
-                    <TempContainer text="This is the map view"/>
+                    <MapView />
                   )}
                 </div>
               )}

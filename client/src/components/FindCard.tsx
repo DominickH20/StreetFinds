@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonCard, IonCardContent, IonCardTitle, IonCardSubtitle,
-  IonImg, IonCardHeader, IonItem, IonButton, IonIcon, IonNote, IonLabel } from '@ionic/react';
+  IonImg, IonIcon } from '@ionic/react';
 import { timerOutline, star } from 'ionicons/icons';
 
 import './FindCard.css';

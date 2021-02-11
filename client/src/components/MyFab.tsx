@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IonFab, IonFabButton, IonFabList, IonIcon } from '@ionic/react';
 import { chevronUpCircleOutline, camera, mapOutline, listOutline } from 'ionicons/icons';
 import './MyFab.css';
