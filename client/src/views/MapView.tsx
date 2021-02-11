@@ -48,8 +48,6 @@ const MapView: React.FC<MapProps> = (props) => {
   axios.get('/maps/key')
   .then((res) => {
     initMap(res.data);
-    console.log(res.data);
-    console.log(typeof(res.data));
   })
   .catch((err) => {console.log(err);});
 
