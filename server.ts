@@ -18,6 +18,11 @@ app.use(express.json());
 app.use("/api/users", usersRouter);
 app.use("/api/finds", findsRouter);
 
+//allow API key to be accessible - allows for interchangeable dev/prod
+app.get('/maps/key', function (req, res) {
+  res.send(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+});
+
 
 //connect to DB
 const uri = process.env.MONGODB_URI;
