@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonFooter, IonHeader, IonItem, IonMenu, IonNote, 
+import { IonContent, IonFooter, IonHeader, IonMenu, 
   IonTitle, IonToolbar, IonThumbnail, IonImg } from '@ionic/react';
 import { cube } from 'ionicons/icons';
 

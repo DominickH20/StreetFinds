@@ -1,9 +1,6 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { IonReactRouter } from '@ionic/react-router';
-import { IonApp, IonContent, IonRouterOutlet } from '@ionic/react';  
+import { IonApp } from '@ionic/react';  
 
-import Welcome from './pages/Welcome';
 import Home from './pages/Home';
 
 /* Core CSS required for Ionic components to work properly */
@@ -24,7 +21,6 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/streetfinds.css';
-import { OutliningSpanKind } from 'typescript';
 
 const App: React.FC = () => (
   <IonApp>
