@@ -1,17 +1,66 @@
-.hcs {
+ion-button {
+    text-transform: none;
+}
+
+.navbar {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
 }
 
-
-.thumbnail-size {
-    height: 30px;
-    width: 30px;
+.navbar-sm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.app-title {
-    /* padding: 10px; */
+.title-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-size: 30px;
     font-weight: bold;
+    width: 200px;
+}
+
+.thumbnail-size {
+    height: 50px;
+    width: 50px;
+}
+
+.title {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.location-container-wide {
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 400px;
+}
+
+.location-container-small {
+    width: 90%;
+}
+
+.location-container-wide ion-icon {
+    color: var(--ion-color-primary);
+    padding-right: 5%;
+    margin: 0%;
+}
+
+.location-container-small ion-icon {
+    color: var(--ion-color-primary);
+    padding-right: 5%;
+    margin: 0%;
+}
+
+.donate {
+    color: #DD072E
+}
+
+.account {
+    color: var(--ion-color-primary);
 }
