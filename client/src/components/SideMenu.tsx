@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonFooter, IonHeader, IonMenu, 
-  IonTitle, IonToolbar, IonThumbnail, IonImg } from '@ionic/react';
+  IonToolbar, IonThumbnail, IonImg } from '@ionic/react';
 import { cube } from 'ionicons/icons';
 
 import TempContainer from './TempContainer';
@@ -12,14 +12,12 @@ const SideMenu: React.FC = () => {
     <IonMenu className="filter-menu" contentId="main" side="start" type="overlay">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>
-            <div className="hcs">
-              StreetFinds
-              <IonThumbnail className="thumbnail-size">
-                <IonImg src={cube}/>
-              </IonThumbnail>
-            </div>
-          </IonTitle>
+        <div className="title-logo">
+            StreetFinds
+            <IonThumbnail className="thumbnail-size">
+              <IonImg src={cube}/>
+            </IonThumbnail>
+          </div>
         </IonToolbar>
       </IonHeader>
       <IonContent>
