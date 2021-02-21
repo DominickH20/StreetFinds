@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
 import axios from 'axios';
 import mapTheme from '../theme/mapTheme';
@@ -16,14 +16,6 @@ interface MapProps {
 }
 
 const MapView: React.FC<MapProps> = (props) => {
-
-  //this is a hack to rerender only when component maps
-  //consider memoizing map component
-  useEffect(() => {
-    if (window.google && window.google.maps && window.google.maps.version) {
-      rerenderMap();
-    }
-  }, []);
 
   const constructMap = () => {
     console.log("construct called");
@@ -83,10 +75,6 @@ const MapView: React.FC<MapProps> = (props) => {
     loader.load().then(() => {
       constructMap();
     });
-  }
-
-  const rerenderMap = () => {
-    constructMap();
   }
 
   //function to operate on map after initial load

@@ -6,13 +6,11 @@
 
 .list-view {
     position: absolute;
-    width: 60%;
     height: 100%;
 }
 
 .map-view {
     position: absolute;
-    width: 40%;
     height: 100%;
     right: 0%;
 }

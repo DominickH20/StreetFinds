@@ -58,34 +58,27 @@ const Home: React.FC = () => {
               isListView={isListView} 
               toggleView={toggleView} 
             />
-            {isSplit ? (
-              <div className="finds-view-container">
-                <div className="list-view">
-                  <ListView isOneCol={isOneCol}/>
-                </div>
-                <div className="map-view">
-                  <MapView 
-                    mapCenter={location}
-                    updateLocation={updateLocation}
-                    zoom={zoom}
-                    updateZoom={updateZoom}
-                  />
-                </div>
+            <div className="finds-view-container">
+              <div className="list-view"
+                style={isSplit ? {width: "60%"} : 
+                  (isListView ? {width: "100%"} : {display: "none"})
+                }
+              >
+                <ListView isOneCol={isOneCol}/>
               </div>
-            ) : (
-              <div className="finds-view-container">
-                {isListView ? (
-                  <ListView isOneCol={isOneCol}/>
-                ) : (
-                  <MapView
-                    mapCenter={location} 
-                    updateLocation={updateLocation}
-                    zoom={zoom}
-                    updateZoom={updateZoom}
-                  />
-                )}
+              <div className="map-view"
+                style={isSplit ? {width: "40%"} : 
+                  (isListView ? {display: "none"} : {width: "100%"})
+                }
+              >
+                <MapView 
+                  mapCenter={location}
+                  updateLocation={updateLocation}
+                  zoom={zoom}
+                  updateZoom={updateZoom}
+                />
               </div>
-            )}
+            </div>
         </IonPage>
       </IonSplitPane>
     </IonPage>
