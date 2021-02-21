@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonFab, IonFabButton, IonFabList, IonIcon } from '@ionic/react';
+import { IonFab, IonFabButton, IonFabList, IonIcon, IonText } from '@ionic/react';
 import { chevronUpCircleOutline, camera, mapOutline, listOutline } from 'ionicons/icons';
 import './MyFab.css';
 
@@ -12,24 +12,32 @@ interface fabProps {
 const MyFab: React.FC<fabProps> = (props) => {
 
   return (
-    <IonFab vertical="bottom" horizontal="end" slot="fixed">
-      <IonFabButton>
-        <IonIcon icon={chevronUpCircleOutline} />
-      </IonFabButton>
-      <IonFabList side="top">
-        <IonFabButton><IonIcon icon={camera} /></IonFabButton>
-        {!props.isSplit && (
-          <IonFabButton onClick={()=>props.toggleView()}>
-            {(props.isListView) ? (
-              <IonIcon icon={mapOutline} />
-            ) : (
-              <IonIcon icon={listOutline} />
-            )}
-          </IonFabButton>              
-        )}
+    <>
+      {!props.isSplit && (
+        <IonFab>
+          <IonFabButton 
+            className="middle-fab"
+            // color="dark"
+            onClick={()=>props.toggleView()}
+          >
+            <IonIcon icon={props.isListView ? mapOutline : listOutline} />
+            <IonText className="fab-text">
+              {props.isListView ? "Map View" : "List View"}
+            </IonText>
+          </IonFabButton>
+        </IonFab>
+      )}
 
-      </IonFabList>
-    </IonFab>
+      <IonFab vertical="bottom" horizontal="end" slot="fixed">
+        <IonFabButton 
+          className="lower-fab"
+          // color="dark"
+          onClick={()=>{}}
+        >
+          <IonIcon icon={camera} />
+        </IonFabButton>
+      </IonFab>
+    </>
   );
 };
 

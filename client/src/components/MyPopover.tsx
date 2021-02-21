@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonItem, IonList, IonListHeader, IonPopover, IonLabel } from '@ionic/react';
 import './MyPopover.css';
-import { closeCircle } from 'ionicons/icons';
 
 interface PopoverProps {
   isAuthed: boolean;
@@ -44,6 +43,6 @@ const MyPopover:React.FC<PopoverProps> = (props) => {
       </IonList>
     </IonPopover>
   );
-}
+};
 
 export default MyPopover;

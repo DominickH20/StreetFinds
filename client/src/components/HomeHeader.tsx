@@ -23,14 +23,14 @@ const HomeHeader: React.FC<HeaderProps> = (props) => {
 
   const setPopover = (state: {showPopover: boolean, event: any}) => {
     setShowPopover(state);
-  }
+  };
 
   const toggleMenu = () => {
     const menu = document.querySelector<HTMLIonMenuElement>(
       "ion-menu.filter-menu"
     );
     return menu!.toggle(true); 
-  }
+  };
 
   return (
     <IonHeader>
@@ -77,10 +77,10 @@ const HomeHeader: React.FC<HeaderProps> = (props) => {
 
         {props.isSplit ? (
           <IonButtons slot="end">
-            <IonButton fill="clear">How it Works</IonButton>
-            <IonButton fill="clear">Settings</IonButton>
-            <IonButton className="donate" fill="clear">Donate!</IonButton>
-            <IonButton className="account">
+            <IonButton href="/" fill="clear">How it Works</IonButton>
+            <IonButton href="/" fill="clear">Settings</IonButton>
+            <IonButton href="/" className="donate" fill="clear">Donate!</IonButton>
+            <IonButton href="/" className="account">
               <IonIcon icon={personCircle} slot="icon-only" size="large"/> {/*change size of icon!*/ }
             </IonButton>
           </IonButtons>

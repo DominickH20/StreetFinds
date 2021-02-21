@@ -1,8 +1,7 @@
 import React from 'react';
 import { IonContent, IonFooter, IonHeader, IonMenu, 
-  IonToolbar, IonThumbnail, IonImg, IonList, IonListHeader, IonCheckbox, IonItem, IonLabel, IonRange, IonSelect, IonSelectOption } from '@ionic/react';
-
-import TempContainer from './TempContainer';
+  IonToolbar, IonThumbnail, IonImg, IonList, IonListHeader, IonCheckbox, 
+  IonItem, IonLabel, IonRange, IonSelect, IonSelectOption } from '@ionic/react';
 
 import './SideMenu.css';
 
