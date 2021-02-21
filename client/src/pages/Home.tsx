@@ -16,6 +16,7 @@ interface myLocation {
 }
 
 const Home: React.FC = () => {
+  const [isAuthed, setAuthed] = useState(false);
   const [isSplit, setSplit] = useState(window.innerWidth > 992);
   const [isOneCol, setOneCol] = useState(window.innerWidth <= 500);
   const [isListView, setListView] = useState(true);
@@ -51,7 +52,7 @@ const Home: React.FC = () => {
       <IonSplitPane contentId="main" className="main-split-pane" when="false">
         <SideMenu/>
         <IonPage id="main">
-          <HomeHeader isSplit={isSplit}/>
+          <HomeHeader isSplit={isSplit} isAuthed={isAuthed}/>
             <MyFab 
               isSplit={isSplit} 
               isListView={isListView} 
