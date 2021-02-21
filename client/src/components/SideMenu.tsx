@@ -12,11 +12,15 @@ const SideMenu: React.FC = () => {
     <IonMenu className="filter-menu" contentId="main" side="start" type="overlay">
       <IonHeader>
         <IonToolbar>
-        <div className="title-logo">
-            StreetFinds
-            <IonThumbnail className="thumbnail-size">
-              <IonImg src={cube}/>
-            </IonThumbnail>
+          <div className="title-logo">
+            <div className="logo">
+              <IonThumbnail className="thumbnail-size">
+                <IonImg 
+                  src={process.env.PUBLIC_URL + "/assets/icon/streetfinds_logo.png"}
+                />
+              </IonThumbnail>
+            </div>
+            <div className="title">StreetFinds</div> {/*Matterdi Bold */}
           </div>
         </IonToolbar>
       </IonHeader>

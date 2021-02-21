@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { IonHeader, IonToolbar, IonButtons, 
   IonButton, IonIcon, IonThumbnail, IonImg, IonItem, 
@@ -7,13 +7,23 @@ import { IonHeader, IonToolbar, IonButtons,
 import { options, ellipsisVertical, search, 
   personCircle } from 'ionicons/icons';
 
+import MyPopover from './MyPopover';
 import './HomeHeader.css';
 
 interface HeaderProps {
   isSplit: boolean;
+  isAuthed: boolean;
 }
 
 const HomeHeader: React.FC<HeaderProps> = (props) => {
+
+  const [popoverState, setShowPopover] = useState({ 
+    showPopover: false, event: undefined 
+  });
+
+  const setPopover = (state: {showPopover: boolean, event: any}) => {
+    setShowPopover(state);
+  }
 
   const toggleMenu = () => {
     const menu = document.querySelector<HTMLIonMenuElement>(
@@ -32,7 +42,7 @@ const HomeHeader: React.FC<HeaderProps> = (props) => {
         </IonButtons>
 
         <div className={props.isSplit ? "navbar" : "navbar-sm"}>
-          {props.isSplit && (
+          {props.isSplit ? (
             <div className="title-logo">
               <div className="logo">
                 <IonThumbnail className="thumbnail-size">
@@ -43,11 +53,22 @@ const HomeHeader: React.FC<HeaderProps> = (props) => {
               </div>
               <div className="title">StreetFinds</div> {/*Matterdi Bold */}
             </div>
+          ) : (
+            <div className="logo">
+              <IonThumbnail className="thumbnail-size">
+                <IonImg 
+                  src={process.env.PUBLIC_URL + "/assets/icon/streetfinds_logo.png"}
+                />
+              </IonThumbnail>
+            </div>
           )}
-          <IonItem className={
-            props.isSplit ? "location-container-wide" : "location-container-small"
-          }>
-            <IonIcon icon={search} slot="start" />
+          <IonItem 
+            className={
+              props.isSplit ? "location-container-wide" : "location-container-small"
+            }
+            lines={props.isSplit ? "inset" : "none"}
+          >
+            <IonIcon icon={search} slot="start" size="small"/>
             <IonInput
               placeholder="Location">
             </IonInput>
@@ -60,15 +81,25 @@ const HomeHeader: React.FC<HeaderProps> = (props) => {
             <IonButton fill="clear">Settings</IonButton>
             <IonButton className="donate" fill="clear">Donate!</IonButton>
             <IonButton className="account">
-              <IonIcon icon={personCircle} slot="icon-only" /> {/*change size of icon!*/ }
+              <IonIcon icon={personCircle} slot="icon-only" size="large"/> {/*change size of icon!*/ }
             </IonButton>
           </IonButtons>
         ) : (
-          <IonButtons slot="end">
-            <IonButton>
-              <IonIcon icon={ellipsisVertical} slot="icon-only" />
-            </IonButton>
-          </IonButtons>
+          <>
+            <IonButtons slot="end">
+              <IonButton onClick={(e: any) => {
+                  e.persist();
+                  setPopover({ showPopover: true, event: e });
+              }}>
+                <IonIcon icon={ellipsisVertical} slot="icon-only" />
+              </IonButton>
+            </IonButtons>
+            <MyPopover 
+              popoverState={popoverState} 
+              setPopover={setPopover}
+              isAuthed={props.isAuthed}
+            />
+          </>
         )}
       </IonToolbar>
     </IonHeader>
