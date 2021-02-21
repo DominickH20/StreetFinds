@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonFab, IonFabButton, IonFabList, IonIcon, IonText } from '@ionic/react';
-import { chevronUpCircleOutline, camera, mapOutline, listOutline } from 'ionicons/icons';
+import { cameraOutline, mapOutline, listOutline } from 'ionicons/icons';
 import './MyFab.css';
 
 interface fabProps {
@@ -34,7 +34,7 @@ const MyFab: React.FC<fabProps> = (props) => {
           // color="dark"
           onClick={()=>{}}
         >
-          <IonIcon icon={camera} />
+          <IonIcon icon={cameraOutline} />
         </IonFabButton>
       </IonFab>
     </>
