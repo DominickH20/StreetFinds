@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent } from '@ionic/react';
 
 import {IonSplitPane, IonPage } from '@ionic/react';
 
@@ -53,41 +52,39 @@ const Home: React.FC = () => {
         <SideMenu/>
         <IonPage id="main">
           <HomeHeader isSplit={isSplit}/>
-          <IonContent>
             <MyFab 
               isSplit={isSplit} 
               isListView={isListView} 
               toggleView={toggleView} 
             />
-              {isSplit ? (
-                <div className="finds-view-container">
-                  <div className="list-view">
-                    <ListView isOneCol={isOneCol}/>
-                  </div>
-                  <div className="map-view">
-                    <MapView 
-                      mapCenter={location}
-                      updateLocation={updateLocation}
-                      zoom={zoom}
-                      updateZoom={updateZoom}
-                    />
-                  </div>
+            {isSplit ? (
+              <div className="finds-view-container">
+                <div className="list-view">
+                  <ListView isOneCol={isOneCol}/>
                 </div>
-              ) : (
-                <div className="finds-view-container">
-                  {isListView ? (
-                    <ListView isOneCol={isOneCol}/>
-                  ) : (
-                    <MapView
-                      mapCenter={location} 
-                      updateLocation={updateLocation}
-                      zoom={zoom}
-                      updateZoom={updateZoom}
-                    />
-                  )}
+                <div className="map-view">
+                  <MapView 
+                    mapCenter={location}
+                    updateLocation={updateLocation}
+                    zoom={zoom}
+                    updateZoom={updateZoom}
+                  />
                 </div>
-              )}
-          </IonContent>
+              </div>
+            ) : (
+              <div className="finds-view-container">
+                {isListView ? (
+                  <ListView isOneCol={isOneCol}/>
+                ) : (
+                  <MapView
+                    mapCenter={location} 
+                    updateLocation={updateLocation}
+                    zoom={zoom}
+                    updateZoom={updateZoom}
+                  />
+                )}
+              </div>
+            )}
         </IonPage>
       </IonSplitPane>
     </IonPage>
