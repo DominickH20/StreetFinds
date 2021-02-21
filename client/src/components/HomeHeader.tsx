@@ -37,7 +37,7 @@ const HomeHeader: React.FC<HeaderProps> = (props) => {
       <IonToolbar>
         <IonButtons slot="start">
           <IonButton onClick={() => toggleMenu()}>
-            <IonIcon icon={options} slot="icon-only" />
+            <IonIcon id="filter-icon" icon={options} slot="icon-only" />
           </IonButton>
         </IonButtons>
 
@@ -91,7 +91,7 @@ const HomeHeader: React.FC<HeaderProps> = (props) => {
                   e.persist();
                   setPopover({ showPopover: true, event: e });
               }}>
-                <IonIcon icon={ellipsisVertical} slot="icon-only" />
+                <IonIcon id="options-icon" icon={ellipsisVertical} slot="icon-only" />
               </IonButton>
             </IonButtons>
             <MyPopover 

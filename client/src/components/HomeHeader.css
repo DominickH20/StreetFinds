@@ -65,3 +65,11 @@ ion-button {
 .account {
     color: var(--ion-color-primary);
 }
+
+#filter-icon {
+    color: var(--ion-color-dark);
+}
+
+#options-icon {
+    color: var(--ion-color-dark);
+}

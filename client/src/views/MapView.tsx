@@ -26,6 +26,7 @@ const MapView: React.FC<MapProps> = (props) => {
   }, []);
 
   const constructMap = () => {
+    console.log("construct called");
     window.map = new google.maps.Map(document.getElementById("map")!, 
       { //map options
         center: props.mapCenter,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonFab, IonFabButton, IonFabList, IonIcon, IonText } from '@ionic/react';
+import { IonFab, IonFabButton, IonIcon, IonText } from '@ionic/react';
 import { cameraOutline, mapOutline, listOutline } from 'ionicons/icons';
 import './MyFab.css';
 
@@ -17,7 +17,6 @@ const MyFab: React.FC<fabProps> = (props) => {
         <IonFab>
           <IonFabButton 
             className="middle-fab"
-            // color="dark"
             onClick={()=>props.toggleView()}
           >
             <IonIcon icon={props.isListView ? mapOutline : listOutline} />
@@ -31,7 +30,6 @@ const MyFab: React.FC<fabProps> = (props) => {
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
         <IonFabButton 
           className="lower-fab"
-          // color="dark"
           onClick={()=>{}}
         >
           <IonIcon icon={cameraOutline} />
