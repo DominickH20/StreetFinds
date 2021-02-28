@@ -5,6 +5,7 @@ import {IonSplitPane, IonPage } from '@ionic/react';
 import SideMenu from '../components/SideMenu';
 import HomeHeader from '../components/HomeHeader';
 import MyFab from '../components/MyFab';
+import UploadModal from '../components/UploadModal';
 import ListView from '../views/ListView';
 import MapView from '../views/MapView';
 
@@ -16,10 +17,16 @@ interface myLocation {
 }
 
 const Home: React.FC = () => {
+  //app states
   const [isAuthed, setAuthed] = useState(false);
+
+  //view states
   const [isSplit, setSplit] = useState(window.innerWidth > 992);
   const [isOneCol, setOneCol] = useState(window.innerWidth <= 500);
   const [isListView, setListView] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  //map states
   const [zoom, setZoom] = useState(14);
   const [location, setLocation] = useState<myLocation>(
     { lat: 40.760142, lng: -73.974469 }
@@ -47,17 +54,29 @@ const Home: React.FC = () => {
     setZoom(zm);
   }
 
+  const setModal = (state: boolean) => {
+    setShowModal(state);
+  }
+
   return (
     <IonPage>
       <IonSplitPane contentId="main" className="main-split-pane" when="false">
         <SideMenu/>
         <IonPage id="main">
           <HomeHeader isSplit={isSplit} isAuthed={isAuthed}/>
+
             <MyFab 
               isSplit={isSplit} 
               isListView={isListView} 
-              toggleView={toggleView} 
+              toggleView={toggleView}
+              showModal={showModal}
+              setModal={setModal}
             />
+            <UploadModal 
+              showModal={showModal}
+              setModal={setModal}
+            />
+
             <div className="finds-view-container">
               <div className="list-view"
                 style={isSplit ? {width: "60%"} : 
