@@ -3,13 +3,15 @@ import { IonFab, IonFabButton, IonIcon, IonText } from '@ionic/react';
 import { cameraOutline, mapOutline, listOutline } from 'ionicons/icons';
 import './MyFab.css';
 
-interface fabProps {
+interface FabProps {
   isSplit: boolean;
   isListView: boolean;
   toggleView(): void;
+  showModal: boolean;
+  setModal(state: boolean): void;
 }
 
-const MyFab: React.FC<fabProps> = (props) => {
+const MyFab: React.FC<FabProps> = (props) => {
 
   return (
     <>
@@ -29,8 +31,9 @@ const MyFab: React.FC<fabProps> = (props) => {
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
         <IonFabButton 
+          disabled={props.showModal ? true : false}
           className="lower-fab"
-          onClick={()=>{}}
+          onClick={()=>{props.setModal(true)}}
         >
           <IonIcon icon={cameraOutline} />
         </IonFabButton>

@@ -1,0 +1,40 @@
+.upload-title {
+    text-align: center;
+}
+
+.upload-modal .img-holder {
+    padding: 2%;
+    background-color: var(--ion-color-light);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.upload-modal ion-fab-button {
+    width: 30px;
+    height: 30px;
+}
+
+.upload-modal ion-img {
+    height: 18vw;
+    width:60%;
+    object-fit: cover;
+}
+  
+.upload-modal ion-img::part(image) {
+    border-radius: 2%;
+}   
+
+@media only screen and (max-width: 1080px) {
+    .upload-modal ion-img {
+        height: 15em;
+        width: 300px;
+        object-fit: cover;
+    }
+}
+
+.upload-modal ion-item {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
