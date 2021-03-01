@@ -32,7 +32,8 @@ const UploadModal: React.FC<ModalProps> = (props) => {
   };
 
   const handlePhoto = async () => {
-    const coords = await currentPos();
+    //fix later
+    //const coords = await currentPos();
     const photo = await takePhoto();
     if (photo!==undefined && photo.webPath!==undefined){
       setPhotoPath(photo.webPath);
