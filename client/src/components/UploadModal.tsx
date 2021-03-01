@@ -37,7 +37,7 @@ const UploadModal: React.FC<ModalProps> = (props) => {
     const photo = await takePhoto();
     if (photo!==undefined && photo.webPath!==undefined){
       setPhotoPath(photo.webPath);
-      console.log(coords);
+      //console.log(coords);
     } else {
       console.log("Photo or WebPath is Undefined");
     }
