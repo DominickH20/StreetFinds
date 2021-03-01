@@ -1,5 +1,5 @@
 import { Plugins, CameraResultType, CameraSource,
-    CameraPhoto, Capacitor } from '@capacitor/core';
+    CameraDirection } from '@capacitor/core';
 
 const { Camera } = Plugins;
 
@@ -9,6 +9,7 @@ export function photoAPI() {
         try{
             const cameraPhoto = await Camera.getPhoto({
                 allowEditing: false,
+                direction: CameraDirection.Rear,
                 resultType: CameraResultType.Uri,
                 source: CameraSource.Camera,
                 quality: 100
@@ -19,10 +20,10 @@ export function photoAPI() {
         } catch (e) {
             console.log("No Photo (likely cancelled by user)");
         }
-    }
+    };
 
     return {
         takePhoto
-    }
+    };
 
 };
