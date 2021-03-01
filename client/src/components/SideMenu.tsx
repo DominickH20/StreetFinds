@@ -28,21 +28,21 @@ const SideMenu: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-      <IonList lines="none">
+      <IonList lines="full">
         <IonListHeader>
           <h3 style={{fontWeight: "bold"}}>Filters</h3>
         </IonListHeader>
         <IonItem>
           <IonLabel position="stacked">
-            Distance (miles)
+            Distance
           </IonLabel>
           <IonRange 
             snaps={true} ticks={true} step={5}
             min={0} max={30}
             value={10} pin={true}
           >
-            <IonText slot="start">0</IonText>
-            <IonText slot="end">30</IonText>
+            <IonText slot="start">0 mi</IonText>
+            <IonText slot="end">30 mi</IonText>
           </IonRange>
         </IonItem>
         <IonItem>
