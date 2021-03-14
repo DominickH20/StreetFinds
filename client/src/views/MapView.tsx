@@ -1,7 +1,9 @@
 import React from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
 import axios from 'axios';
+
 import mapTheme from '../theme/mapTheme';
+import { StreetFind } from '../types/StreetFind'
 import './MapView.css';
 
 declare global {
@@ -13,6 +15,7 @@ interface MapProps {
   zoom: number;
   updateLocation(loc: { lat: number; lng:number; }): void;
   updateZoom(zm: number): void;
+  itemList: StreetFind[];
 }
 
 const MapView: React.FC<MapProps> = (props) => {
@@ -63,6 +66,15 @@ const MapView: React.FC<MapProps> = (props) => {
       });
       props.updateZoom(window.map.getZoom());
     });
+
+    //add items to map
+    props.itemList.map((streetfind, index) => {
+      new google.maps.Marker({
+        position: {lat: streetfind.lat, lng: streetfind.lng},
+        map: window.map,
+        title: "Marker " + index 
+      });
+    });
   }
 
   //function to prepare map, called after key retrieved
@@ -79,11 +91,11 @@ const MapView: React.FC<MapProps> = (props) => {
 
   //function to operate on map after initial load
   const updateMap = () => {
-    new google.maps.Marker({
-      position: props.mapCenter,
-      map: window.map,
-      title: "My Marker"
-    });
+    // new google.maps.Marker({
+    //   position: props.mapCenter,
+    //   map: window.map,
+    //   title: "My Marker"
+    // });
     console.log("update called");
   }
 
