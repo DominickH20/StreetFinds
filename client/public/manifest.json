@@ -1,16 +1,16 @@
 {
-  "short_name": "Ionic App",
-  "name": "My Ionic App",
+  "short_name": "StreetFinds",
+  "name": "Streetfinds",
   "icons": [
     {
-      "src": "assets/icon/favicon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "assets/icon/streetfinds64.png",
+      "sizes": "64x64",
       "type": "image/x-icon"
     },
     {
-      "src": "assets/icon/icon.png",
+      "src": "assets/icon/streetfinds258aw.png",
       "type": "image/png",
-      "sizes": "512x512",
+      "sizes": "258x258",
       "purpose": "maskable"
     }
   ],
