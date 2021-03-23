@@ -60,31 +60,6 @@ const Home: React.FC = () => {
     setShowModal(state);
   }
 
-
-  //randomize img for testing
-  // const choice = Math.floor(Math.random() * 4) + 1;
-  // let path:string = "";
-  // let desc:string = ""
-  // switch(choice) {
-  //   case 1:
-  //     path = "/assets/test_imgs/chairs1.jpg";
-  //     desc = "Chairs and Bar Stools";
-  //     break;
-  //   case 2:
-  //     path = "/assets/test_imgs/couch1.jpg";
-  //     desc = "Couch - Blue";
-  //     break;
-  //   case 3:
-  //     path = "/assets/test_imgs/couch2b.png";
-  //     desc = "Couch - Green"
-  //     break;
-  //   case 4:
-  //     path = "/assets/test_imgs/drawer1.jpg";
-  //     desc = "Drawer - Brown and White";
-  //     break;
-  // }
-
-  // let isNew = Math.random() > 0.75 ? true : false;
   const itemList:StreetFind[] = [
     {
       imageURL: "/assets/test_imgs/drawer1.jpg",
@@ -167,10 +142,6 @@ const Home: React.FC = () => {
       user: "N/A"
     }
   ];
-
-  for (let i=0; i < 4; i++) {
-    itemList.push(itemList[i]);
-  }
 
   return (
     <IonPage>

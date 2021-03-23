@@ -1,0 +1,86 @@
+.find-card-info-window {
+    margin: 2px;
+    border: solid;
+    border-width: 1px;
+    border-color: var(--ion-color-light);
+    width: 200px;
+  }
+  
+  .find-card-info-window .img-holder {
+    padding: 2%;
+  }
+  
+  .find-card-info-window ion-img::part(image) {
+    border-radius: 2%;
+  }
+  
+  .find-card-info-window ion-img {
+      height: 10em;
+      object-fit: cover;
+  }
+  
+  .find-card-info-window ion-card-content {
+    padding: 2%;
+    padding-top: 0%;
+    padding-bottom: 2px;
+  }
+  
+  .find-card-info-window .title-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .find-card-info-window ion-card-title {
+    padding: 0px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .find-card-info-window ion-card-subtitle {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .find-card-info-window .title-holder ion-icon {
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--ion-color-primary);
+  }
+   
+  .find-card-info-window .title-holder .text{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+  }
+  
+  .find-card-info-window .new-find {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  
+    color: white;
+    background-color: #DD072E;
+  
+    position: absolute;
+    border-radius: 4px;
+    width: 80px;
+    height: 16px;
+    right: 10px;
+    bottom: 30px;
+    font-size: 12px;
+  }
+  
+  .find-card-info-window .new-find .text {
+     margin-left: 4px;
+  }
+  
+  .find-card-info-window .new-find ion-icon {
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+  }
