@@ -1,0 +1,17 @@
+.item-view-modal {
+
+}
+
+.item-view-modal .back-fab {
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.item-view-modal .back-icon {
+    color: black;
+    opacity: 1;
+}

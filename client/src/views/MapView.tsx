@@ -16,6 +16,9 @@ interface MapProps {
   zoom: number;
   updateLocation(loc: { lat: number; lng:number; }): void;
   updateZoom(zm: number): void;
+  showModal: boolean;
+  setModal(state: boolean): void;
+  updateModalItem(item: StreetFind): void;
   itemList: StreetFind[];
 }
 
@@ -274,6 +277,9 @@ const MapView: React.FC<MapProps> = (props) => {
         <FindCardInfoWindow 
           streetfind={popupProps.item} 
           userLocation={props.mapCenter}
+          showModal={props.showModal}
+          setModal={props.setModal}
+          updateModalItem={props.updateModalItem}
         />
       </div>
     </>

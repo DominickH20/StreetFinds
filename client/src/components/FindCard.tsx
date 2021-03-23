@@ -13,6 +13,9 @@ interface ItemProps {
     lat: number; 
     lng: number;
   };
+  showModal: boolean;
+  setModal(state: boolean): void;
+  updateModalItem(item: StreetFind): void;
 }
 
 const FindCard: React.FC<ItemProps> = (props) => {
@@ -43,7 +46,14 @@ const FindCard: React.FC<ItemProps> = (props) => {
   );
 
   return (
-    <IonCard className="find-card">
+    <IonCard 
+      className="find-card" 
+      button={true} 
+      onClick={() => {
+        props.setModal(true);
+        props.updateModalItem(props.streetfind);
+      }}
+    >
 
       {(hoursSincePosting <= 2) && (
         <div className="new-find">
