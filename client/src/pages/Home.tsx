@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {IonSplitPane, IonPage } from '@ionic/react';
+import {IonSplitPane, IonPage, IonContent } from '@ionic/react';
 
 import { StreetFind } from '../types/StreetFind';
 
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
       color: ["White", "Brown"],
       material: ["Wood"],
       quality: 4,
-      description: "",
+      description: "Near the brick building with rose tree",
       timestamp: new Date().getTime(),
       user: "N/A"
     },
@@ -162,7 +162,7 @@ const Home: React.FC = () => {
         <SideMenu/>
         <IonPage id="main">
           <HomeHeader isSplit={isSplit} isAuthed={isAuthed}/>
-
+          <IonContent>
             <MyFab 
               isSplit={isSplit} 
               isListView={isListView} 
@@ -214,6 +214,7 @@ const Home: React.FC = () => {
                 />
               </div>
             </div>
+          </IonContent>
         </IonPage>
       </IonSplitPane>
     </IonPage>

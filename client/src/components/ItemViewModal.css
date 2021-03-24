@@ -1,7 +1,3 @@
-.item-view-modal {
-
-}
-
 .item-view-modal .back-fab {
     position: fixed;
     height: 40px;
@@ -9,9 +5,63 @@
     top: 10px;
     left: 10px;
     z-index: 1;
+    --background: rgba(255,255,255,0.75);
 }
 
 .item-view-modal .back-icon {
     color: black;
-    opacity: 1;
+}
+
+.item-view-modal ion-img {
+    height: 40vh;
+    object-fit: cover;
+}
+
+.item-view-modal .title-holder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-view-modal .titles {
+    background-color: green;
+}
+
+.item-view-modal .icons {
+    background-color: red;
+}
+
+.item-view-modal h3 {
+    font-weight: bold;
+    margin: 0px;
+}
+
+.item-view-modal h4 {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0px;
+}
+
+.item-view-modal ion-list {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.item-view-modal .list-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.item-view-modal .title-label {
+    font-weight: bold;
+    width: 30%;
+}
+
+.item-view-modal .label-content {
+    width: 70%;
+    word-wrap: break-word;
 }
