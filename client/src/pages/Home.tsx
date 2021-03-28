@@ -180,6 +180,8 @@ const Home: React.FC = () => {
               setModal={setItemViewModal}
               streetfind={modalItem}
               userLocation={location}
+              key={modalItem.imageURL}
+              isOneCol={isOneCol}
             />
 
             <div className="finds-view-container">

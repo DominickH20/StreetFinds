@@ -12,8 +12,13 @@
     color: black;
 }
 
-.item-view-modal ion-img {
-    height: 40vh;
+.item-view-modal .img-holder {
+    width: 100%;
+}
+
+.item-view-modal img {
+    width: 100%;
+    height: 50vh;
     object-fit: cover;
 }
 
@@ -24,17 +29,10 @@
     justify-content: space-between;
 }
 
-.item-view-modal .titles {
-    background-color: green;
-}
-
-.item-view-modal .icons {
-    background-color: red;
-}
-
 .item-view-modal h3 {
     font-weight: bold;
     margin: 0px;
+    font-size: 19px;
 }
 
 .item-view-modal h4 {
@@ -56,12 +54,81 @@
     padding-bottom: 10px;
 }
 
-.item-view-modal .title-label {
+.item-view-modal .title-label1 {
     font-weight: bold;
     width: 30%;
 }
 
-.item-view-modal .label-content {
+.item-view-modal .label-content1 {
     width: 70%;
     word-wrap: break-word;
+    color: #525050;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.item-view-modal .title-label2 {
+    font-weight: bold;
+    width: 35%;
+}
+
+.item-view-modal .label-content2 {
+    width: 65%;
+    word-wrap: break-word;
+    color: #525050;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.item-view-modal .icons {
+    font-weight: bold;
+}
+
+.item-view-modal .icons .stars {
+
+}
+
+.item-view-modal .icons .star {
+    vertical-align: middle;
+    color: #DD072E;
+    font-size: 16px;
+}
+
+.item-view-modal .icons .hour-timer {
+    vertical-align: middle;
+    color: var(--ion-color-primary);
+    font-size: 20px;
+    margin-left: 2px;
+}
+
+.item-view-modal .icons .hours {
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.item-view-modal .donate-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-view-modal .donate-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.item-view-modal .donate-button {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-view-modal .donate-fab {
+    height: 40px;
+    width: 40px;
+    z-index: 1;
+    margin-left: 2px;
+    margin-right: 2px;
+    --background: #DD072E;
 }

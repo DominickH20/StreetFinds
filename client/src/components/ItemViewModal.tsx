@@ -2,7 +2,7 @@ import React from 'react';
 import { IonModal, IonPage, IonFabButton, IonIcon, IonImg, 
   IonList, IonItem, IonContent, IonListHeader, IonLabel } from '@ionic/react';
 
-import { arrowBackOutline } from 'ionicons/icons';
+import { arrowBackOutline, timerOutline, star } from 'ionicons/icons';
 
 import { getDistLatLngMi } from '../hooks/locationAPI';
 import { StreetFind } from '../types/StreetFind'
@@ -16,6 +16,7 @@ interface ItemModalProps {
   };
   showModal: boolean;
   setModal(state: boolean): void;
+  isOneCol: boolean;
 }
 
 const ItemViewModal: React.FC<ItemModalProps> = (props) => {
@@ -55,6 +56,10 @@ const ItemViewModal: React.FC<ItemModalProps> = (props) => {
     distToUser + " mi)"
   );
 
+  const hoursSincePosting = Math.ceil(
+    (new Date().getTime() - props.streetfind.timestamp)/1000/60/60
+  );
+
   return (
     <IonModal 
       cssClass="item-view-modal"
@@ -67,7 +72,7 @@ const ItemViewModal: React.FC<ItemModalProps> = (props) => {
             <IonIcon className="back-icon" icon={arrowBackOutline}/>
           </IonFabButton>
           <div className="img-holder">
-            <IonImg src={props.streetfind.imageURL}/>
+            <img src={props.streetfind.imageURL} key={props.streetfind.imageURL}/>
           </div>
           <IonList lines="none">
             <IonListHeader>
@@ -77,35 +82,64 @@ const ItemViewModal: React.FC<ItemModalProps> = (props) => {
                   <h4>{itemSubtitle}</h4>
                 </div>
                 <div className="icons">
-                  <div>TIMER</div>
-                  <div>Quality</div>
+                  <div className="hours">
+                    <span className="text">
+                      {hoursSincePosting}
+                    </span>
+                    <IonIcon className="hour-timer" icon={timerOutline}/>
+                  </div>
+                  <div className="stars">
+                    {[...Array(props.streetfind.quality)]
+                      .map((value: undefined, index: number) => {
+                        return <IonIcon className="star" icon={star} key={index}/>
+                      })
+                    }
+                  </div>
                 </div>
               </div>
               
             </IonListHeader>
             <IonItem>
               <div className="list-item">
-                <div className="title-label">Address:</div>
-                <div className="label-content">{itemAddress}</div>
+                <div className="title-label1">Address:</div>
+                <div className="label-content1">{itemAddress}</div>
               </div>
             </IonItem>
             <IonItem>
               <div className="list-item">
-                <div className="title-label">Material:</div>
-                <div className="label-content">{props.streetfind.material}</div>
+                <div className="title-label1">Material:</div>
+                <div className="label-content1">{props.streetfind.material.join(", ")}</div>
               </div>
             </IonItem>
-            <IonItem>
+            <IonItem lines="full">
               {(props.streetfind.description === "" ? (
                 <div className="list-item"/>
               ) : (
                 <div className="list-item">
-                  <div className="title-label">Description:</div>
-                  <div className="label-content">info here</div>
+                  <div className={props.isOneCol ? "title-label2" : "title-label1"}>Description:</div>
+                  <div className={props.isOneCol ? "label-content2" : "label-content1"}>{props.streetfind.description}</div>
                 </div>
               ))}
             </IonItem>
-            <IonItem>Donation</IonItem>
+            <IonItem>
+              <div className="list-item donate-item">
+                <div className="donate-text">
+                  <span>The average {props.streetfind.category[0].toLowerCase()} costs $50... </span>
+                  <span>Support the stoopers!</span>
+                </div>
+                <div className="donate-button">
+                  <IonFabButton className="donate-fab">
+                    $1
+                  </IonFabButton>
+                  <IonFabButton className="donate-fab">
+                    $3
+                  </IonFabButton>
+                  <IonFabButton className="donate-fab">
+                    $5
+                  </IonFabButton>
+                </div>
+              </div>
+            </IonItem>
           </IonList>
         </IonContent>
       </IonPage>
