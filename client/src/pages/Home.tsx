@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {IonSplitPane, IonPage } from '@ionic/react';
+import {IonSplitPane, IonPage, IonContent } from '@ionic/react';
 
 import { StreetFind } from '../types/StreetFind';
 
@@ -8,6 +8,7 @@ import SideMenu from '../components/SideMenu';
 import HomeHeader from '../components/HomeHeader';
 import MyFab from '../components/MyFab';
 import UploadModal from '../components/UploadModal';
+import ItemViewModal from '../components/ItemViewModal';
 import ListView from '../views/ListView';
 import MapView from '../views/MapView';
 
@@ -19,46 +20,6 @@ interface myLocation {
 }
 
 const Home: React.FC = () => {
-  //app states
-  const [isAuthed, setAuthed] = useState(false);
-
-  //view states
-  const [isSplit, setSplit] = useState(window.innerWidth > 992);
-  const [isOneCol, setOneCol] = useState(window.innerWidth <= 500);
-  const [isListView, setListView] = useState(true);
-  const [showModal, setShowModal] = useState(false);
-
-  //map states
-  const [zoom, setZoom] = useState(14);
-  const [location, setLocation] = useState<myLocation>(
-    { lat: 40.760142, lng: -73.974469 }
-  );
-
-  useEffect(() => {
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  });
-
-  const updateMedia = () => {
-    setSplit(window.innerWidth > 992);
-    setOneCol(isSplit ? 0.6*window.innerWidth <= 500 : window.innerWidth <= 500);
-  };
-
-  const toggleView = () => {
-    return (isListView ? setListView(false) : setListView(true));
-  }
-
-  const updateLocation = (loc: myLocation) => {
-    setLocation(loc);
-  }
-
-  const updateZoom = (zm: number) => {
-    setZoom(zm);
-  }
-
-  const setModal = (state: boolean) => {
-    setShowModal(state);
-  }
 
   const itemList:StreetFind[] = [
     {
@@ -77,7 +38,7 @@ const Home: React.FC = () => {
       color: ["White", "Brown"],
       material: ["Wood"],
       quality: 4,
-      description: "",
+      description: "Near the brick building with rose tree",
       timestamp: new Date().getTime(),
       user: "N/A"
     },
@@ -143,23 +104,84 @@ const Home: React.FC = () => {
     }
   ];
 
+  //app states
+  const [isAuthed, setAuthed] = useState(false);
+
+  //view states
+  const [isSplit, setSplit] = useState(window.innerWidth > 992);
+  const [isOneCol, setOneCol] = useState(window.innerWidth <= 500);
+  const [isListView, setListView] = useState(true);
+  const [showUploadModal, setShowUploadModal] = useState(false);
+  const [showItemViewModal, setShowItemViewModal] = useState(false);
+  const [modalItem, setModalItem] = useState(itemList[0]);
+
+  //map states
+  const [zoom, setZoom] = useState(14);
+  const [location, setLocation] = useState<myLocation>(
+    { lat: 40.760142, lng: -73.974469 }
+  );
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
+  const updateMedia = () => {
+    setSplit(window.innerWidth > 992);
+    setOneCol(isSplit ? 0.6*window.innerWidth <= 500 : window.innerWidth <= 500);
+  };
+
+  const toggleView = () => {
+    return (isListView ? setListView(false) : setListView(true));
+  }
+
+  const updateLocation = (loc: myLocation) => {
+    setLocation(loc);
+  }
+
+  const updateZoom = (zm: number) => {
+    setZoom(zm);
+  }
+
+  const setUploadModal = (state: boolean) => {
+    setShowUploadModal(state);
+  }
+
+  const setItemViewModal = (state: boolean) => {
+    setShowItemViewModal(state);
+  }
+
+  const updateModalItem = (item: StreetFind) => {
+    setModalItem(item);
+  }
+
+  
   return (
     <IonPage>
       <IonSplitPane contentId="main" className="main-split-pane" when="false">
         <SideMenu/>
         <IonPage id="main">
           <HomeHeader isSplit={isSplit} isAuthed={isAuthed}/>
-
+          <IonContent>
             <MyFab 
               isSplit={isSplit} 
               isListView={isListView} 
               toggleView={toggleView}
-              showModal={showModal}
-              setModal={setModal}
+              showModal={showUploadModal}
+              setModal={setUploadModal}
             />
             <UploadModal 
-              showModal={showModal}
-              setModal={setModal}
+              showModal={showUploadModal}
+              setModal={setUploadModal}
+            />
+
+            <ItemViewModal 
+              showModal={showItemViewModal}
+              setModal={setItemViewModal}
+              streetfind={modalItem}
+              userLocation={location}
+              key={modalItem.imageURL}
+              isOneCol={isOneCol}
             />
 
             <div className="finds-view-container">
@@ -172,6 +194,9 @@ const Home: React.FC = () => {
                   isOneCol={isOneCol} 
                   itemList={itemList}
                   userLocation={location}
+                  showModal={showItemViewModal}
+                  setModal={setItemViewModal}
+                  updateModalItem={updateModalItem}
                 />
               </div>
               <div className="map-view"
@@ -185,9 +210,13 @@ const Home: React.FC = () => {
                   zoom={zoom}
                   updateZoom={updateZoom}
                   itemList={itemList}
+                  showModal={showItemViewModal}
+                  setModal={setItemViewModal}
+                  updateModalItem={updateModalItem}
                 />
               </div>
             </div>
+          </IonContent>
         </IonPage>
       </IonSplitPane>
     </IonPage>

@@ -12,6 +12,9 @@ interface ListProps {
     lat: number; 
     lng: number;
   };
+  showModal: boolean;
+  setModal(state: boolean): void;
+  updateModalItem(item: StreetFind): void;
 }
 
 const ListView: React.FC<ListProps> = (props) => {
@@ -25,7 +28,13 @@ const ListView: React.FC<ListProps> = (props) => {
                 sizeXs={props.isOneCol ? "12" : "6"} 
                 key={index}
               >
-                <FindCard streetfind={streetfind} userLocation={props.userLocation}/>
+                <FindCard 
+                  streetfind={streetfind} 
+                  userLocation={props.userLocation}
+                  showModal={props.showModal}
+                  setModal={props.setModal}
+                  updateModalItem={props.updateModalItem}
+                />
               </IonCol>
             ))}
           </IonRow>
